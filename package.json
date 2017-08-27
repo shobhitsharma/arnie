@@ -1,0 +1,26 @@
+{
+  "name": "boujee",
+  "version": "0.0.1",
+  "description": "UI library for modern Web Apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shobhitsharma/boujee.git"
+  },
+  "keywords": [
+    "boujee",
+    "frontend",
+    "ui-library",
+    "mvc",
+    "virtual-dom"
+  ],
+  "author": "Shobhit Sharma <ishobhitsharma@gmail.com> (https://shobh.it/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shobhitsharma/boujee/issues"
+  },
+  "homepage": "https://github.com/shobhitsharma/boujee#readme"
+}

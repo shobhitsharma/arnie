@@ -1,26 +1,39 @@
 {
   "name": "boujee",
-  "version": "0.0.1",
-  "description": "UI library for modern Web Apps",
-  "main": "index.js",
-  "scripts": {
-    "test": "npm test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shobhitsharma/boujee.git"
-  },
+  "description": "Minimal view layer for creating declarative web user interfaces.",
+  "version": "6.0.0",
+  "main": "dist/boujee.js",
+  "module": "src/index.js",
+  "license": "MIT",
+  "repository": "jorgebucaran/boujee",
+  "types": "boujee.d.ts",
+  "files": [
+    "src",
+    "dist",
+    "boujee.d.ts"
+  ],
+  "author": "Jorge Bucaran",
   "keywords": [
     "boujee",
     "frontend",
-    "ui-library",
-    "mvc",
-    "virtual-dom"
+    "virtual dom",
+    "vdom"
   ],
-  "author": "Shobhit Sharma <ishobhitsharma@gmail.com> (https://shobh.it/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/shobhitsharma/boujee/issues"
+  "scripts": {
+    "test": "jest --coverage --no-cache",
+    "build": "npm run bundle && npm run minify",
+    "bundle": "rollup -i src/index.js -o dist/boujee.js -m -f umd -n boujee",
+    "minify": "uglifyjs dist/boujee.js -o dist/boujee.js -mc pure_funcs=['Object.defineProperty'] --source-map includeSources,url=boujee.js.map",
+    "prepare": "npm run build",
+    "release": "npm run build && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
-  "homepage": "https://github.com/shobhitsharma/boujee#readme"
+  "babel": {
+    "presets": "env"
+  },
+  "devDependencies": {
+    "babel-env": "^2.4.1",
+    "jest": "^23.3.0",
+    "rollup": "^0.62.0",
+    "uglify-js": "^3.4.3"
+  }
 }
